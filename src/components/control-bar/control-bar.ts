@@ -19,6 +19,10 @@ export class ControlBar {
         this.ea.publish("writeSample");
     }
 
+    writeBubbleSort() {
+        this.ea.publish("writeBubbleSort");
+    }
+
     clear() {
         this.ea.publish("clear");
         this.store.dispatch(resetState);

@@ -26,6 +26,7 @@ export class IdeCanvas {
     attached() {
         this.resizeCanvas();
         this.ea.subscribe('writeSample', () => this.writeSampleText(this.ide.getContext("2d")));
+        this.ea.subscribe('writeBubbleSort', () => this.writeBubbleSort(this.ide.getContext("2d")));
         this.ea.subscribe('clear', () => this.clearCanvas());
 
         PLATFORM.global.addEventListener("resize", this.resizeEventHandler, false);
@@ -50,6 +51,34 @@ export class IdeCanvas {
         ctx.fillText('\t return x + y;', 10, 100);
         ctx.fillText('\}', 10, 150);
         ctx.fillText('f\( 3, 4 \);', 10, 200);
+        this.updateState();
+    }
+
+    private writeBubbleSort(ctx: CanvasRenderingContext2D) {
+        ctx.font = '25px serif';
+        ctx.fillText('function bubbleSort\(array\) \{', 10, 25);
+        ctx.fillText('\tvar countOuter = 0;', 10, 50);
+        ctx.fillText('\tvar countInner = 0;', 10, 75);
+        ctx.fillText('\tvar countSwap = 0;', 10, 100);
+        ctx.fillText('\tvar swapped;', 10, 125);
+        ctx.fillText('\tdo {', 10, 150);
+        ctx.fillText('\t\tcountOuter++;', 10, 175);
+        ctx.fillText('\t\tswapped = false;', 10, 200);
+        ctx.fillText('\t\tfor\(var i = 0; i < array.length; i++\) \{', 10, 225);
+        ctx.fillText('\t\t\tcountInner++;', 10, 250);
+        ctx.fillText('\t\t\tif\(array[i] && array[i + 1] && array[i] > array[i + 1]\) \{', 10, 275);
+        ctx.fillText('\t\t\t\tcountSwap++;', 10, 300);
+        ctx.fillText('\t\t\t\tswap\(array, i, i + 1\);', 10, 325);
+        ctx.fillText('\t\t\t\tswapped = true;', 10, 350);
+        ctx.fillText('\t\t\t\}', 10, 375);
+        ctx.fillText('\t\t\}', 10, 400);
+        ctx.fillText('\t\} while\(swapped\);', 10, 425);
+        ctx.fillText('\tconsole.log\(\'outer:\', countOuter, \'inner:\', countInner, \'swap:\', countSwap\);', 10, 450);
+        ctx.fillText('\treturn array;', 10, 475);
+        ctx.fillText('\}', 10, 500);
+        ctx.fillText('bubbleSort\(arrayRandom.slice\(\)\); // => outer: 9 inner: 90 swap: 21', 10, 525);
+        ctx.fillText('bubbleSort\(arrayOrdered.slice\(\)\); // => outer: 1 inner: 10 swap: 0', 10, 550);
+        ctx.fillText('bubbleSort\(arrayReversed.slice\(\)\); // => outer: 10 inner: 100 swap: 45', 10, 575);
         this.updateState();
     }
 

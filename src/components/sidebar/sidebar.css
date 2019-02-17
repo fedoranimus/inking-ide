@@ -11,8 +11,22 @@ sidebar {
     flex: 1;
 }
 
+.code-content {
+    max-width: 400px;
+    overflow-x: auto;
+}
+
 .console {
-    flex: 0 0 40%;
+    flex: 0 0 200px;
+}
+
+.output {
+    flex: 1;
+}
+
+.output-content {
+    padding: 0 1rem;
+    font-size: larger;
 }
 
 .console-content {
