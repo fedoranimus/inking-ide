@@ -1,0 +1,21 @@
+.sidebar {
+    background-color: #fafafa;
+}
+
+sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.formatted-code {
+    flex: 1;
+}
+
+.console {
+    flex: 0 0 40%;
+}
+
+.console-content {
+    height: 200px;
+    overflow-y: scroll;
+}

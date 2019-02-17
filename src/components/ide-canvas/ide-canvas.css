@@ -1,0 +1,10 @@
+ide-canvas {
+
+}
+
+ide-canvas canvas {
+    background-color: aliceblue;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

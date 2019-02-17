@@ -1,0 +1,19 @@
+.interpret {
+    /* background-color: #77DD77;
+    color: #FCFCFE; */
+}
+
+control-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.control {
+    justify-self: flex-start;
+    flex: 1;
+}
+
+.processing {
+    justify-content: flex-end;
+}

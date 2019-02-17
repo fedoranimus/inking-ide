@@ -1,0 +1,12 @@
+<template>
+    <require from="./ide-canvas.css"></require>
+    <canvas ref="ide"
+        mousemove.delegate="drawMouse($event)"
+        mousedown.delegate="setPosition($event)"
+        mouseenter.delegate="setPosition($event)"
+        mouseup.delegate="updateState()"
+        
+        touchmove.delegate="drawTouch($event)"
+        touchstart.delegate="setPosition($event)"
+        touchup.delegate="updateState()">No Canvas Support</canvas>
+</template>

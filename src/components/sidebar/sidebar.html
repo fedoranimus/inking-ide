@@ -1,0 +1,19 @@
+<template>
+    <require from="./sidebar.css"></require>
+
+    <div class="formatted-code">
+        <h3>Recognized Text</h3>
+        <pre><code ref="codeContent">
+
+        </code></pre>
+    </div>
+
+    <div class="output" show.bind="hasOutput">
+        <div class="output-content" ref="outputContent"></div>
+    </div>
+
+    <div class="console">
+        <h3>Console</h3>
+        <div class="console-content" ref="consoleContent"></div>
+    </div>
+</template>

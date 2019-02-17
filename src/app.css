@@ -1,0 +1,52 @@
+html, body {
+   height: 100%;
+   margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 3rem 3fr;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: 
+    "header header"
+    "content sidebar"
+}
+
+control-bar {
+  grid-area: header;
+  background-color: #FCEBBF;
+}
+
+sidebar {
+  grid-area: sidebar;
+  background-color: #CED6E3;
+}
+
+ide-canvas {
+  grid-area: content;
+  position: relative;
+  background-color: #FCFCFE;
+}
+
+pre {
+  background-color: #F0F0F0 !important;
+}
+
+button {
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+  padding: 6px;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+button:active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}

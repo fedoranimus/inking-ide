@@ -1,0 +1,42 @@
+{
+  "name": "inking-ide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "webpack-dev-server --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedoranimus/inking-ide.git"
+  },
+  "author": "Tim Turner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fedoranimus/inking-ide/issues"
+  },
+  "homepage": "https://github.com/fedoranimus/inking-ide#readme",
+  "dependencies": {
+    "aurelia-bootstrapper": "^2.3.2",
+    "aurelia-event-aggregator": "^1.0.2",
+    "aurelia-fetch-client": "^1.8.0",
+    "aurelia-framework": "^1.3.1",
+    "aurelia-store": "^1.3.3",
+    "bulma": "^0.7.4"
+  },
+  "devDependencies": {
+    "aurelia-webpack-plugin": "^3.0.0",
+    "css-loader": "^2.1.0",
+    "html-loader": "^0.5.5",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14",
+    "worker-loader": "^2.0.0"
+  }
+}
