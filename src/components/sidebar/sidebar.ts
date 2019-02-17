@@ -29,6 +29,9 @@ export class Sidebar {
 
     codeChanged(newState: string, oldState: string) {
         this.codeContent.innerHTML = newState.trim();
+        document.querySelectorAll('pre code').forEach(block => {
+            hljs.highlightBlock(block);
+        });
     }
 
     resultChanged(newState: any, oldState: any) {
