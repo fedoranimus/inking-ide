@@ -25,31 +25,36 @@ export class ControlBar {
     }
 
     public recognize() {
-        Tesseract.recognize(this.state.canvasContext, {
-            lang: 'eng'
-        })
-        .progress((message: any) => {
-            console.log(message);
-            this.isProcessing = true;
-            this.store.dispatch(processMessage, message.status);
-        })
-        .catch((err: Error) => { 
-            console.error(err) 
-            this.isProcessing = false;
-        })
-        .then((result: any) => {
-            console.log(result);
-            result.symbols.forEach((symbol: any) => {
-                this.store.dispatch(processMessage, `Text: ${symbol.text}, Confidence: ${symbol.confidence}`);
+        try {
+            Tesseract.recognize(this.state.canvasContext, {
+                lang: 'eng'
+            })
+            .progress((message: any) => {
+                console.log(message);
+                this.isProcessing = true;
+                this.store.dispatch(processMessage, message.status);
+            })
+            .catch((err: Error) => { 
+                console.error(err);
+                this.store.dispatch(processMessage, err.message);
+                this.isProcessing = false;
+            })
+            .then((result: any) => {
+                console.log(result);
+                result.symbols.forEach((symbol: any) => {
+                    this.store.dispatch(processMessage, `Text: ${symbol.text}, Confidence: ${symbol.confidence}`);
+                });
+                this.store.dispatch(updateCode, result.text);
+                this.isProcessing = false;
             });
-            this.store.dispatch(updateCode, result.text);
-            this.isProcessing = false;
-        });
+        } catch(e) {
+            this.store.dispatch(processMessage, "Recognization Failed");
+        }
     }
 
     public interpret() {
         this.lemming.onTimeout(() => {
-            alert('Timed out.');
+            this.store.dispatch(processMessage, "Timed Out");
         });
     
         this.lemming.onResult((result: any) =>{
@@ -57,11 +62,12 @@ export class ControlBar {
         });
     
         this.lemming.onError((error: string) => {
-            alert('Oh noes! ' + error);
+            this.store.dispatch(processMessage, 'Oh noes! ' + error);
         });
     
         this.lemming.onCompleted(() =>{
             //alert('Completed');
+            this.store.dispatch(processMessage, "Completed Interpretation");
         });
 
         this.lemming.run(this.state.code);

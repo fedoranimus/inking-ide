@@ -59,10 +59,10 @@ export class IdeCanvas {
     }
 
     drawTouch(event: TouchEvent) {
+        event.preventDefault();
         if(event.touches.length <= 0) return;
         const firstTouch = event.touches[0];
         if(firstTouch.touchType === "stylus") {
-            event.preventDefault();
             this.draw(firstTouch);
         }
     }
