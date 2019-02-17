@@ -48,7 +48,7 @@ export class ControlBar {
                 this.isProcessing = false;
             });
         } catch(e) {
-            this.store.dispatch(processMessage, "Recognization Failed");
+            this.store.dispatch(processMessage, `Recognization Failed: ${e.message}`);
         }
     }
 
