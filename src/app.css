@@ -4,6 +4,7 @@ html, body {
    margin: 0;
    position: fixed;
    overflow: hidden;
+   font-size: 120%;
 }
 
 body {
